@@ -1,0 +1,45 @@
+﻿<Window x:Class="FuncionariosWPF.CargoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FuncionariosWPF"
+        mc:Ignorable="d"
+        Title="CargoWindow" Height="250" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock>Nome:</TextBlock>
+        <TextBlock Grid.Row="1">Atribuição:</TextBlock>
+        <TextBlock Grid.Row="2">Salário Base:</TextBlock><TextBlock />
+        <TextBox Grid.Column="1" Name="NomeTxtBox"
+                 HorizontalAlignment="Left" />
+        <TextBox Grid.Column="1" Name="AtribuicaoTxtBox" 
+                 Grid.Row="1" TextWrapping="Wrap"
+                 HorizontalAlignment="Left" />
+        <TextBox Grid.Column="1" Name="SalarioBaseTxtBox"
+                 Grid.Row="2"
+                 HorizontalAlignment="Left" />
+
+        <StackPanel 
+            HorizontalAlignment="Center"
+            Grid.Row="5" Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+            <Button  Width="100" Margin="0,0,50,0" >Ok</Button>
+            <Button  Grid.Column="1" Margin="50,0,0,0"
+                Width="100">Cancelar</Button>
+        </StackPanel>
+        
+    </Grid>
+
+</Window>
