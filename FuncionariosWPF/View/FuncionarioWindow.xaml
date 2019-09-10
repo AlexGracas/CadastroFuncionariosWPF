@@ -38,7 +38,34 @@
         <DatePicker SelectedDate="{Binding Funcionario.Demissao}" Grid.Column="1" Grid.Row="4" x:Name="DemissaoDate"></DatePicker>
         <DataGrid 
             ItemsSource="{Binding Funcionario.Lotacoes}"
-            Grid.Row="6" Grid.ColumnSpan="2">
+            Grid.Row="6" Grid.ColumnSpan="2"
+            AutoGenerateColumns="False"
+            >
+            <!--Especificar as colunas. Repare que o Datagrid está com AutoGenerateColumns = false
+            para evitar que ele crie as colunas automaticamente o ItemSource vinculado.-->
+            <DataGrid.Columns>
+                <!--O binding é feito relativo a um registro do ItemSource-->
+                <DataGridTextColumn Binding="{Binding Departamento.Nome}" />
+                <DataGridTextColumn Binding="{Binding Cargo.Nome}" />
+                <!--É possível colocar controles especificos ou até personalizados dentro de uma coluna.
+                    No caso um DatePicker-->
+                <DataGridTemplateColumn Header="Início">
+                    <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Inicio}" BorderThickness="0" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Fim">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker x:Name="ColumnDatePicker" SelectedDate="{Binding Fim}"                                         
+                                        BorderThickness="0">
+                            </DatePicker>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
         <StackPanel 
             HorizontalAlignment="Center"
