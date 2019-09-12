@@ -13,8 +13,13 @@ namespace FuncionariosWPF.ViewModel
             Funcionarios.Funcionario 
             Funcionario { get; set; }
 
+        public IList<Departamento> Departamentos { get; set; }
+
+        public IList<Cargo> Cargos { get; set; }
+
         public FuncionarioViewModel()
         {
+            ModelFuncionarios context = new ModelFuncionarios();
             this.Funcionario = new Funcionarios.Funcionario()
             {
                 Nome = "Fulano de Tal",
@@ -22,10 +27,10 @@ namespace FuncionariosWPF.ViewModel
                 Admissao = new DateTime(2018, 01, 01)
             };
             this.Funcionario.Lotacoes = new List<Lotacao>();
-            Departamento departamento = new Departamento()
-            {
-                Nome = "Administração de Sistemas"
-            };
+            Departamento departamento = context.
+                Departamentos.Where(d =>
+                    d.Nome.Contains("Banco de Dados")).
+                    FirstOrDefault();
             Cargo cargo = new Cargo()
             {
                 Nome = "Chefe"
@@ -46,7 +51,10 @@ namespace FuncionariosWPF.ViewModel
             l2.Departamento = departamento;
             l2.Inicio = new DateTime(2019, 01, 01);
             this.Funcionario.Lotacoes.Add(l2);
+            this.Departamentos = context
+                .Departamentos.ToList();
 
+            this.Cargos = context.Cargos.ToList();
         }
 
     }
