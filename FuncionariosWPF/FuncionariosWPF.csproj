@@ -61,8 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DepartamentoWindow.xaml.cs">
+      <DependentUpon>DepartamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DepartamentoViewModel.cs" />
     <Compile Include="ViewModel\FuncionarioViewModel.cs" />
     <Page Include="CargoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepartamentoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

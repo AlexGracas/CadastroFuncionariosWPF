@@ -17,9 +17,10 @@ namespace FuncionariosWPF.ViewModel
 
         public IList<Cargo> Cargos { get; set; }
 
+        ModelFuncionarios context = new ModelFuncionarios();
+
         public FuncionarioViewModel()
         {
-            ModelFuncionarios context = new ModelFuncionarios();
             this.Funcionario = new Funcionarios.Funcionario()
             {
                 Nome = "Fulano de Tal",
@@ -57,5 +58,9 @@ namespace FuncionariosWPF.ViewModel
             this.Cargos = context.Cargos.ToList();
         }
 
+        public void Salvar()
+        {
+            this.context.SaveChanges();
+        }
     }
 }

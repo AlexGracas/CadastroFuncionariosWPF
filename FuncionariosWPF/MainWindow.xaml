@@ -15,7 +15,9 @@
               Grid.ColumnSpan="2">
             <MenuItem Header="Gerenciar">
                 <MenuItem Header="Cargos"></MenuItem>
-                <MenuItem Header="Departamentos"></MenuItem>
+                <MenuItem Header="Departamentos"
+                          x:Name="DepartamentosMenu"
+                          Click="DepartamentosMenu_Click"></MenuItem>
                 <MenuItem x:Name="FuncionariosMenu"
                     Header="Funcionários"
                           Click="FuncionariosMenu_Click"

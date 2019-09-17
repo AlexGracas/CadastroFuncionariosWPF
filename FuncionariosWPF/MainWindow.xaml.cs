@@ -30,5 +30,11 @@ namespace FuncionariosWPF
             Window window = new FuncionarioWindow();
             window.ShowDialog();
         }
+
+        private void DepartamentosMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new DepartamentoWindow();
+            window.ShowDialog();
+        }
     }
 }

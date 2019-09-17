@@ -28,5 +28,14 @@ namespace FuncionariosWPF
             DataContext = this.FuncionarioViewModel;
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == this.OkBtn)
+            {
+                this.FuncionarioViewModel.Salvar();
+            }
+            this.Close();
+        }
     }
 }
