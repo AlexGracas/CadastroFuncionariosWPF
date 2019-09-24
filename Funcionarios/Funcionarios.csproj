@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Cargo.cs" />
     <Compile Include="Cidade.cs" />
+    <Compile Include="DAL\FuncionarioDAO.cs" />
     <Compile Include="Departamentos.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="Funcionario.cs" />

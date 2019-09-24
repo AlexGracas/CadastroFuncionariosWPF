@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>FuncionariosWPF.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -61,24 +64,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DepartamentoWindow.xaml.cs">
+    <Compile Include="View\DepartamentoWindow.xaml.cs">
       <DependentUpon>DepartamentoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\DepartamentoViewModel.cs" />
     <Compile Include="ViewModel\FuncionarioViewModel.cs" />
-    <Page Include="CargoWindow.xaml">
+    <Page Include="View\CargoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DepartamentoWindow.xaml">
+    <Page Include="View\DepartamentoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FuncionarioWindow.xaml">
+    <Page Include="View\FuncionarioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -86,13 +89,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CargoWindow.xaml.cs">
+    <Compile Include="View\CargoWindow.xaml.cs">
       <DependentUpon>CargoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FuncionarioWindow.xaml.cs">
+    <Compile Include="View\FuncionarioWindow.xaml.cs">
       <DependentUpon>FuncionarioWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

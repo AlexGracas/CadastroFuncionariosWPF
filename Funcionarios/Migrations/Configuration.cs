@@ -1,6 +1,7 @@
 namespace Funcionarios.Migrations
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -55,9 +56,47 @@ namespace Funcionarios.Migrations
             AdicionarCargoBanco(context, programador);
             AdicionarCargoBanco(context, DBA);
             AdicionarCargoBanco(context, Operador);
-            context.SaveChanges();
+
+
+            var Funcionario = new Funcionarios.Funcionario()
+            {
+                Nome = "Fulano de Tal",
+                CPF = "111.111.111-22",
+                Admissao = new DateTime(2018, 01, 01)
+            };
+            Funcionario.Lotacoes = new List<Lotacao>();
+            Departamento departamento = context.
+                Departamentos.Where(d =>
+                    d.Nome.Contains("Banco de Dados")).
+                    FirstOrDefault();
+            Lotacao l1 = new Lotacao();
+            l1.Cargo = DBA;
+            l1.Departamento = departamento;
+            l1.Inicio = new DateTime(2018, 01, 01);
+            l1.Fim = new DateTime(2018, 12, 31);
+            Funcionario.Lotacoes.Add(l1);
+
+            Lotacao l2 = new Lotacao();
+            l2.Cargo = programador;
+            l2.Departamento = departamento;
+            l2.Inicio = new DateTime(2019, 01, 01);
+            Funcionario.Lotacoes.Add(l2);
+            AdicionarFuncionarioBanco(context,Funcionario);
+        context.SaveChanges();
         }
 
+        private static void AdicionarFuncionarioBanco(ModelFuncionarios context,
+            Funcionario f)
+        {
+            Funcionario funcionario =
+                            (from frc in context.Funcionarios
+                             where frc.Nome == f.Nome
+                             select frc).FirstOrDefault();
+            if (funcionario == null)
+            {
+                context.Funcionarios.Add(f);
+            }
+        }
         private static void AdicionarCargoBanco(ModelFuncionarios context, 
             Cargo c)
         {
